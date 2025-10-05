@@ -6,11 +6,7 @@
 // voltage division to read specific resistors values and assign a module to it
 //
 
-se;
-  }
-  for (int r = 0; r < ROW; r++){
-    for (int c = 0; c < COL; c++){
-      visited[r][c] = f// define LEDs and RGB LED
+// define LEDs and RGB LED
 #define RED 2
 #define YELLOW 3
 #define GREEN 4
@@ -57,7 +53,11 @@ void dfs(int r, int c){
 
 void checkErrors(){
   for (int i = 0; i < 7; i++) {
-  	error_code[i] = falalse; // reset visited
+  	error_code[i] = false;
+  }
+  for (int r = 0; r < ROW; r++){
+    for (int c = 0; c < COL; c++){
+      visited[r][c] = false; // reset visited
     }
   }
   
@@ -85,11 +85,11 @@ void checkErrors(){
       if (grid[r][c] > THRESHOLD && !visited[r][c]){
         error_code[1] = true; // disconnected module
   	  }
-	  }
+	}
 	}
   
   // error_codes[2-6] would output true when there is not enough of a certain module
-  // not implemented due to time constraints
+	// didn't implement due to time restraints
 }
 
 String findModule(int av){
